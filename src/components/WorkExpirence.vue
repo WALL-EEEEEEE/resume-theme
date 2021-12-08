@@ -1,42 +1,60 @@
 <script>
-import { defineComponent } from '@vue/composition-api'
-
-export default defineComponent({
-    setup() {
-        
-    },
-})
+module.exports = {
+  data: function() {
+    return {
+      expirences: {
+        enable: true,
+        icon: `<icon class="fa fa-building fa-2x"></icon>`,
+        title: `工作经历`,
+        items: [
+          {
+            position: "爬虫工程师",
+            company: "虎牙直播",
+            companyUrl: "https://maimai.cn/company?webcid=s9Qooyze&fr=profile",
+            timeStart: "2019/01",
+            timeEnd: "现在",
+            text: "Nullam aliquam ornare massa. Nulla eleifend viverra velit, et vehicula metus condimentum sit amet. Aliquam erat volutpat. Nam sit amet viverra orci. Nulla rutrum facilisis massa, vel tincidunt erat. Nam ante quam, ultricies eu dignissim quis, consequat non velit.",
+            achivements: {
+              enable: true,
+              items: [
+                {text: `a tincidunt tortor dictum non. Phasellus lobortis leo risus, at malesuada eros rutrum non.`},
+                {text: `Quisque hendrerit hendrerit lectus.`},
+                {text: `Aliquam erat volutpat. Nam sit amet viverra orci. Nulla rutrum facilisis.`}
+              ],
+            }
+          },
+        ]
+      }
+    };
+  }
+};
 </script>
 
 
 <template>
-  <div class="work">
+  <div class="work" v-if="expirences.enable">
     <span class="category-header">
-      {{ .Site.Data.content.work.icon | safeHTML}}
-      <h2>{{ .Site.Data.content.work.title }}</h2>
+         {{expirences.icon}}
+      <h2>{{ expirences.title}}</h2>
     </span>
 
     <div class="timeline-container">
       {{ range .Site.Data.content.work.items }}
-        <div class="timeline-item">
-          <span class="date">{{ .timeStart }} - {{ .timeEnd }}</span>
+        <div class="timeline-item" v-for="item in expirences.items" :key="item.company">
+          <span class="date">{{ item.timeStart }} - {{ item.timeEnd }}</span>
           <h3>
-            {{ .position }} @
-            <a href="{{ .employerUrl | safeHTML }}" target="_blank" rel="noreferrer">{{ .employerName }}</a>
+            {{ item.position }} @
+            <a href="{{ item.companyUrl }}" target="_blank" rel="noreferrer">{{ item.company }}</a>
           </h3>
           <p>
-            {{ .text | safeHTML }}
-            {{ if .list.enable }}
-              <ul>
-                {{ range .list.items }}
-                   <li>{{ .text | safeHTML }}</li>
-                 {{ end }}
+            {{ item.text }}
+              <ul v-if="item.achivements.enable">
+                <li v-for="item in item.achivements.items" :key="item.text">{{ text}}</li>
               </ul>
-            {{ end }}
           </p>
         </div>
       {{ end }}
     </div>
+    <hr/>
   </div>
-  <hr>
 </template>

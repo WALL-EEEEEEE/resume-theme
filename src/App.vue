@@ -1,15 +1,27 @@
 <script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 import WorkExpirence from './components/WorkExpirence.vue'
 import vuetify from '@/plugins/vuetify'
-new Vue({
+import Vue from "vue"
+/*
+export default {
   vuetify,
-}).$mount('#app')
+  components: {
+    WorkExpirence
+  }
+}
+*/
+new Vue("#app", {
+  vuetify,
+  components: {
+    WorkExpirence
+  }
+})
 </script>
 
 <template>
-  <WorkExpirence></WorkExpirence>
+  <div id="app">
+    <WorkExpirence></WorkExpirence>
+  </div>
 </template>
 
 <style>
