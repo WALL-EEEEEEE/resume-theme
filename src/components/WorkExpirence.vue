@@ -14,7 +14,7 @@ export default {
             companyUrl: "https://maimai.cn/company?webcid=s9Qooyze&fr=profile",
             timeStart: "2019/01",
             timeEnd: "现在",
-            text: "Nullam aliquam ornare massa. Nulla eleifend viverra velit, et vehicula metus condimentum sit amet. Aliquam erat volutpat. Nam sit amet viverra orci. Nulla rutrum facilisis massa, vel tincidunt erat. Nam ante quam, ultricies eu dignissim quis, consequat non velit.",
+            text: "负责虎牙数据中心的爬虫平台的分布式爬虫任务系统的开发, 爬虫框架的开发以及外部数据采集接入的工作",
             achivements: {
               enable: true,
               items: [
@@ -33,13 +33,12 @@ export default {
 
 
 <template>
-  <div class="work" v-if="expirences.enable">
-    <span class="category-header">
+  <v-card v-if="expirences.enable">
+    <v-card-title>
       <span v-html="expirences.icon"></span>
-      <h2>{{ expirences.title}}</h2>
-    </span>
-
-    <div class="timeline-container">
+      {{ expirences.title}}
+    </v-card-title>
+    <v-container>
         <div class="timeline-item" v-for="item in expirences.items" :key="item.company">
           <span class="date">{{ item.timeStart }} - {{ item.timeEnd }}</span>
           <h3>
@@ -53,7 +52,6 @@ export default {
               </ul>
           </p>
         </div>
-    </div>
-    <hr/>
-  </div>
+  </v-container>
+</v-card>
 </template>

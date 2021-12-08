@@ -1,19 +1,23 @@
-<script setup>
-import WorkExpirence from './components/WorkExpirence.vue'
-
-export default {
-  name: "App",
-  components: {
-    WorkExpirence
-  }
-}
-</script>
-
 <template>
-  <div id="app">
-    <WorkExpirence></WorkExpirence>
-  </div>
+  <v-app>
+    <v-main>
+      <WorkExpirence></WorkExpirence>
+    </v-main>
+  </v-app>
 </template>
 
-<style>
-</style>
+<script>
+import WorkExpirence from './components/WorkExpirence.vue';
+
+export default {
+  name: 'App',
+
+  components: {
+    WorkExpirence,
+  },
+
+  data: () => ({
+    //
+  }),
+};
+</script>
