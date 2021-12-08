@@ -1,21 +1,12 @@
 <script setup>
 import WorkExpirence from './components/WorkExpirence.vue'
-import vuetify from '@/plugins/vuetify'
-import Vue from "vue"
-/*
+
 export default {
-  vuetify,
+  name: "App",
   components: {
     WorkExpirence
   }
 }
-*/
-new Vue("#app", {
-  vuetify,
-  components: {
-    WorkExpirence
-  }
-})
 </script>
 
 <template>
