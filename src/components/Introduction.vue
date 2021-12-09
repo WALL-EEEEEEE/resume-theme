@@ -5,6 +5,7 @@ export default {
     return {
        title: "自我介绍",
        enable: true,
+       icon:''
     }
   }
 };

@@ -5,6 +5,7 @@ export default {
     return {
       title: '教育经历',
       enable: true,
+      icon: ''
     }
   }
 };
