@@ -3,14 +3,14 @@ export default {
   name: "WorkExpirence",
   data: function() {
     return {
-      expirences: {
-        enable: true,
-        icon: `<icon class="fa fa-building fa-2x"></icon>`,
-        title: `工作经历`,
-        items: [
-          {
+      enable: true,
+      title: `工作经历`,
+      icon: `<icon class="fa fa-building fa-2x"></icon>`,
+      items: [
+        {
             position: "爬虫工程师",
             company: "虎牙直播",
+            color: "pink",
             companyUrl: "https://maimai.cn/company?webcid=s9Qooyze&fr=profile",
             timeStart: "2019/01",
             timeEnd: "现在",
@@ -23,35 +23,39 @@ export default {
                 {text: `Aliquam erat volutpat. Nam sit amet viverra orci. Nulla rutrum facilisis.`}
               ],
             }
-          },
-        ]
-      }
-    };
-  }
-};
+        },
+    ]
+  };
+}
+}
 </script>
 
 
 <template>
-  <v-card v-if="expirences.enable">
+  <v-card v-if="enable">
     <v-card-title>
-      <span v-html="expirences.icon"></span>
-      {{ expirences.title}}
+      <span v-if="icon" v-html="icon"></span>
+      {{ title}}
     </v-card-title>
-    <v-container>
-        <div class="timeline-item" v-for="item in expirences.items" :key="item.company">
-          <span class="date">{{ item.timeStart }} - {{ item.timeEnd }}</span>
-          <h3>
-            {{ item.position }} @
-            <a :href="item.companyUrl" target="_blank" rel="noreferrer">{{ item.company }}</a>
-          </h3>
-          <p>
-            {{ item.text }}
+    <v-card-text>
+       <v-timeline align-top dense>
+        <v-timeline-item  :color="item.color" small v-for="item in items" :key="item.company">
+          <v-card>
+            <v-card-title primary-title>
+              {{ item.position }}@<a :href="item.companyUrl" target="_blank" rel="noreferrer">{{ item.company }}</a>
+            </v-card-title>
+            <v-card-subtitle>
+              {{ item.timeStart}}-{{ item.timeEnd }}
+            </v-card-subtitle>
+            <v-card-text>
+             {{ item.text }}
               <ul v-if="item.achivements.enable">
                 <li v-for="item in item.achivements.items" :key="item.text">{{item.text}}</li>
               </ul>
-          </p>
-        </div>
-  </v-container>
+            </v-card-text>
+          </v-card>
+        </v-timeline-item>
+       </v-timeline>
+    </v-card-text>
 </v-card>
 </template>
