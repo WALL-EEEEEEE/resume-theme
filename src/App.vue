@@ -1,10 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <Introduction></Introduction>
-      <WorkExpirence></WorkExpirence>
-      <Education></Education>
-      <Project></Project>
+      <slot></slot>
     </v-main>
   </v-app>
 </template>
@@ -14,6 +11,7 @@ import WorkExpirence from './components/WorkExpirence.vue';
 import Project from './components/Project.vue'
 import Education from './components/Education.vue'
 import Introduction from './components/Introduction.vue'
+import Profile from './components/Profile.vue'
 
 export default {
   name: 'App',
@@ -23,7 +21,8 @@ export default {
     WorkExpirence,
     Education,
     Project,
-  },
+    Profile
+},
 
   data: () => ({
     //

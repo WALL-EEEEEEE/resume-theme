@@ -1,12 +1,23 @@
 <script>
 export default {
   name: "WorkExpirence",
-  data: function() {
-    return {
-      enable: true,
-      title: `工作经历`,
-      icon: `<icon class="fa fa-building fa-2x"></icon>`,
-      items: [
+  props: {
+    enable: {
+      type: Boolean,
+      default: true,
+    },
+    title: {
+      type: String,
+      default: `工作经历`,
+    },
+    icon: {
+      type: String,
+      default: `<icon class="fa fa-building fa-2x"></icon>`
+    },
+    items: {
+      type: Array,
+      default: function() {
+        return [
         {
             position: "爬虫工程师",
             company: "虎牙直播",
@@ -24,8 +35,12 @@ export default {
               ],
             }
         },
-    ]
-  };
+      ]
+    }
+  },
+  },
+  data: function() {
+    return {};
 }
 }
 </script>
