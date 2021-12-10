@@ -5,7 +5,7 @@ export default {
     return {
       title: '教育经历',
       enable: true,
-      icon: ''
+      icon: 'mdi-school-outline'
     }
   }
 };
@@ -14,7 +14,7 @@ export default {
 <template>
  <v-card v-if="enable">
     <v-card-title>
-      <span v-if="icon" v-html="icon"></span>
+      <v-icon v-if="icon" size='24px' dense color="black darken-2">{{ icon }}</v-icon>
       {{ title}}
     </v-card-title>
     <v-card-text>

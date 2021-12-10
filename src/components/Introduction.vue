@@ -5,7 +5,7 @@ export default {
     return {
        title: "自我介绍",
        enable: true,
-       icon:''
+       icon:'mdi-account-outline'
     }
   }
 };
@@ -14,7 +14,7 @@ export default {
 <template>
  <v-card v-if="enable">
     <v-card-title>
-      <span v-if="icon" v-html="icon"></span>
+      <v-icon v-if="icon" dense color="black darken-2" size='24px'>{{ icon }}</v-icon>
       {{ title}}
     </v-card-title>
     <v-card-text>

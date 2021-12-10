@@ -12,7 +12,7 @@ export default {
     },
     icon: {
       type: String,
-      default: `<icon class="fa fa-building fa-2x"></icon>`
+      default: `mdi-domain`
     },
     items: {
       type: Array,
@@ -49,7 +49,7 @@ export default {
 <template>
   <v-card v-if="enable">
     <v-card-title>
-      <span v-if="icon" v-html="icon"></span>
+      <v-icon v-if="icon" size='24px' dense color="black darken-2">{{ icon }}</v-icon>
       {{ title}}
     </v-card-title>
     <v-card-text>

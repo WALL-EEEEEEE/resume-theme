@@ -1,7 +1,11 @@
 <template>
   <v-app>
     <v-main>
-      <slot></slot>
+      <Profile></Profile>
+      <Introduction></Introduction>
+      <WorkExpirence></WorkExpirence>
+      <Project></Project>
+      <Education></Education>
     </v-main>
   </v-app>
 </template>
